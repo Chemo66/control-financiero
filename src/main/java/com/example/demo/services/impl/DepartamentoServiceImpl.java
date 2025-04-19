@@ -6,40 +6,39 @@ package com.example.demo.services.impl;
  
  import org.springframework.stereotype.Service;
  
- import com.example.demo.models.Ciudad;
- import com.example.demo.repositories.CiudadRepository;
- import com.example.demo.services.CiudadService;
+ import com.example.demo.models.Departamento;
+ import com.example.demo.repositories.DepartamentoRepository;
+ import com.example.demo.services.DepartamentoService;
  
  import lombok.AllArgsConstructor;
  
  @Service
  @AllArgsConstructor
- public class DepartamentoServiceImpl implements CiudadService {
+ public class DepartamentoServiceImpl implements DepartamentoService {
  
- 	private final CiudadRepository ciudadRepository;
+ 	private final DepartamentoRepository departamentoRepository;
  
  	@Override
- 	public List<Ciudad> getAllCiudades() {
- 		
- 		return this.ciudadRepository.findAll();
+ 	public List<Departamento> getAllDepartamentos() {
+ 		return this.departamentoRepository.findAllDepartamentos();
  	}
  
  	@Override
- 	public Optional<Ciudad> getCiudadById(Long id) {
- 		return this.ciudadRepository.findById(id);
+ 	public Optional<Departamento> getDepartamentoById(Long id) {
+ 		return this.departamentoRepository.findById(id);
  	}
  
  	@Override
- 	public void saveCiudades(Ciudad rol) {
- 		if (Objects.nonNull(rol)) {
- 			this.ciudadRepository.save(rol);
+ 	public void saveDepartamento(Departamento departamento) {
+ 		if (Objects.nonNull(departamento)) {
+ 			this.departamentoRepository.save(departamento);
  		}
  	}
  
  	@Override
- 	public void deleteCiudad(Long id) {
+ 	public void deleteDepartamento(Long id) {
  		if(Objects.nonNull(id)) {
- 			this.ciudadRepository.findById(id).ifPresent(rol -> this.ciudadRepository.delete(rol));
+ 			this.departamentoRepository.findById(id).ifPresent(departamento -> this.departamentoRepository.delete(departamento));
  		}
  	}
  
