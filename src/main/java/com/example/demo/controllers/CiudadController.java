@@ -20,7 +20,7 @@ package com.example.demo.controllers;
  import lombok.AllArgsConstructor;
  
  @Controller
- @RequestMapping(path = "/ciudad")
+ @RequestMapping(path = "/Ciudad")
  @AllArgsConstructor
  public class CiudadController {
  
